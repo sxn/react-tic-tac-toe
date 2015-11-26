@@ -25,6 +25,10 @@ export default class Overview extends React.Component {
     }
 
     updateRow(row, column) {
+        if (this.state.board[row][column] !== null) {
+            return;
+        }
+
         let newTurn = this.state.turn + 1;
         let newBoard = game.set(this.state.board, newTurn % 2 ? 0 : 1, row, column);
 
